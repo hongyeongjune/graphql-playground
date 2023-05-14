@@ -11,4 +11,5 @@ type FilmResponse {
 
 type Query {
     getFilm(filmId: Int!): FilmResponse!
+    getFilms: [FilmResponse!]!
 }

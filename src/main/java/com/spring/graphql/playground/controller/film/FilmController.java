@@ -1,5 +1,7 @@
 package com.spring.graphql.playground.controller.film;
 
+import java.util.List;
+
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
@@ -17,5 +19,10 @@ public class FilmController {
     @QueryMapping
     public FilmResponse getFilm(@Argument Long filmId) {
         return filmService.getFilm(filmId);
+    }
+
+    @QueryMapping
+    public List<FilmResponse> getFilms() {
+        return filmService.getFilms();
     }
 }
