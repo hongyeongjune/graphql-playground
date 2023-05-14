@@ -1,0 +1,14 @@
+type FilmResponse {
+    id: Int!
+    title: String!
+    subtitle: String
+    genre: String!
+    runningTime: Float!
+    description: String!
+    posterImg: String!
+    releaseDate: String!
+}
+
+type Query {
+    getFilm(filmId: Int!): FilmResponse!
+}
