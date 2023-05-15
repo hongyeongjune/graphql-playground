@@ -2,7 +2,7 @@ import { FilmsQuery } from '../../generated/graphql';
 import { AspectRatio, Box, Heading, Image, LinkBox, Stack, Text, useColorModeValue } from '@chakra-ui/react';
 
 interface FilmCardProps {
-    film: FilmsQuery['getFilms'][0];
+    film: FilmsQuery['getFilms']['data'][0];
 }
 
 const FilmCard = ({ film }: FilmCardProps) => {

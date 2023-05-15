@@ -15,7 +15,12 @@ type FilmResponse {
     director: DirectorResponse!
 }
 
+type CursorPagedResponse {
+    cursor: Long!
+    data: [FilmResponse!]!
+}
+
 type Query {
-    getFilm(filmId: Int!): FilmResponse!
-    getFilms: [FilmResponse!]!
+    getFilm(filmId: Long!): FilmResponse!
+    getFilms(filmId: Long, limit: Long): CursorPagedResponse!
 }

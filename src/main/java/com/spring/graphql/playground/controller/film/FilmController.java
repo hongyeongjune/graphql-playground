@@ -1,11 +1,10 @@
 package com.spring.graphql.playground.controller.film;
 
-import java.util.List;
-
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
+import com.spring.graphql.playground.dto.common.CursorPagedResponse;
 import com.spring.graphql.playground.dto.film.FilmResponse;
 import com.spring.graphql.playground.service.FilmService;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +21,7 @@ public class FilmController {
     }
 
     @QueryMapping
-    public List<FilmResponse> getFilms() {
-        return filmService.getFilms();
+    public CursorPagedResponse<FilmResponse> getFilms(@Argument Long filmId, @Argument Long limit) {
+        return filmService.getCursorPagedFilms(filmId, limit);
     }
 }

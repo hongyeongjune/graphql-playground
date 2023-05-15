@@ -18,6 +18,12 @@ export type Scalars = {
   Long: any;
 };
 
+export type CursorPagedResponse = {
+  __typename?: 'CursorPagedResponse';
+  cursor: Scalars['Long'];
+  data: Array<FilmResponse>;
+};
+
 export type DirectorResponse = {
   __typename?: 'DirectorResponse';
   id: Scalars['Long'];
@@ -40,33 +46,45 @@ export type FilmResponse = {
 export type Query = {
   __typename?: 'Query';
   getFilm: FilmResponse;
-  getFilms: Array<FilmResponse>;
+  getFilms: CursorPagedResponse;
 };
 
 
 export type QueryGetFilmArgs = {
-  filmId: Scalars['Int'];
+  filmId: Scalars['Long'];
 };
 
-export type FilmsQueryVariables = Exact<{ [key: string]: never; }>;
+
+export type QueryGetFilmsArgs = {
+  filmId?: InputMaybe<Scalars['Long']>;
+  limit?: InputMaybe<Scalars['Long']>;
+};
+
+export type FilmsQueryVariables = Exact<{
+  filmId?: InputMaybe<Scalars['Long']>;
+  limit?: InputMaybe<Scalars['Long']>;
+}>;
 
 
-export type FilmsQuery = { __typename?: 'Query', getFilms: Array<{ __typename?: 'FilmResponse', id: any, title: string, subtitle?: string | null, genre: string, runningTime: number, releaseDate: string, posterImg: string, director: { __typename?: 'DirectorResponse', id: any, name: string } }> };
+export type FilmsQuery = { __typename?: 'Query', getFilms: { __typename?: 'CursorPagedResponse', cursor: any, data: Array<{ __typename?: 'FilmResponse', id: any, title: string, subtitle?: string | null, genre: string, runningTime: number, releaseDate: string, posterImg: string, director: { __typename?: 'DirectorResponse', id: any, name: string } }> } };
 
 
 export const FilmsDocument = gql`
-    query Films {
-  getFilms {
-    id
-    title
-    subtitle
-    genre
-    runningTime
-    releaseDate
-    posterImg
-    director {
+    query Films($filmId: Long, $limit: Long) {
+  getFilms(filmId: $filmId, limit: $limit) {
+    cursor
+    data {
       id
-      name
+      title
+      subtitle
+      genre
+      runningTime
+      releaseDate
+      posterImg
+      director {
+        id
+        name
+      }
     }
   }
 }
@@ -84,6 +102,8 @@ export const FilmsDocument = gql`
  * @example
  * const { data, loading, error } = useFilmsQuery({
  *   variables: {
+ *      filmId: // value for 'filmId'
+ *      limit: // value for 'limit'
  *   },
  * });
  */

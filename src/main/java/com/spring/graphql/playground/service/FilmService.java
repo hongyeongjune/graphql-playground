@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.spring.graphql.playground.dto.common.CursorPagedResponse;
 import com.spring.graphql.playground.dto.film.FilmResponse;
 import com.spring.graphql.playground.persistance.film.FilmRepository;
 import lombok.RequiredArgsConstructor;
@@ -25,5 +26,14 @@ public class FilmService {
         return filmRepository.findAll().stream()
             .map(FilmResponse::from)
             .collect(Collectors.toList());
+    }
+
+    public CursorPagedResponse<FilmResponse> getCursorPagedFilms(Long cursor, Long limit) {
+        return CursorPagedResponse.of(
+            cursor,
+            filmRepository.findAllByIdGt(cursor, limit).stream()
+                .map(FilmResponse::from)
+                .collect(Collectors.toList())
+        );
     }
 }

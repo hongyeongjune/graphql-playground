@@ -1,15 +1,18 @@
-query Films {
-    getFilms {
-        id
-        title
-        subtitle
-        genre
-        runningTime
-        releaseDate
-        posterImg
-        director {
+query Films($filmId: Long, $limit: Long) {
+    getFilms(filmId: $filmId, limit: $limit) {
+        cursor
+        data {
             id
-            name
+            title
+            subtitle
+            genre
+            runningTime
+            releaseDate
+            posterImg
+            director {
+                id
+                name
+            }
         }
     }
 }
