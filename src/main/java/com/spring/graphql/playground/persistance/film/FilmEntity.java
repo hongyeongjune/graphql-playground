@@ -4,11 +4,15 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.spring.graphql.playground.persistance.director.DirectorEntity;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -26,6 +30,10 @@ public class FilmEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "film_id")
     private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "director_id", nullable = false)
+    private DirectorEntity directorEntity;
 
     @Column(name = "title", nullable = false)
     private String title;
