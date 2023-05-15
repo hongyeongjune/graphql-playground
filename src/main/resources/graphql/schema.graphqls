@@ -1,5 +1,10 @@
+type DirectorResponse {
+    id: Long!
+    name: String!
+}
+
 type FilmResponse {
-    id: Int!
+    id: Long!
     title: String!
     subtitle: String
     genre: String!
@@ -7,6 +12,7 @@ type FilmResponse {
     description: String!
     posterImg: String!
     releaseDate: String!
+    director: DirectorResponse!
 }
 
 type Query {

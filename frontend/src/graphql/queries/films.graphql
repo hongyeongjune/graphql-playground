@@ -3,5 +3,13 @@ query Films {
         id
         title
         subtitle
+        genre
+        runningTime
+        releaseDate
+        posterImg
+        director {
+            id
+            name
+        }
     }
 }

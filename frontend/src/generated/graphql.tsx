@@ -18,11 +18,18 @@ export type Scalars = {
   Long: any;
 };
 
+export type DirectorResponse = {
+  __typename?: 'DirectorResponse';
+  id: Scalars['Long'];
+  name: Scalars['String'];
+};
+
 export type FilmResponse = {
   __typename?: 'FilmResponse';
   description: Scalars['String'];
+  director: DirectorResponse;
   genre: Scalars['String'];
-  id: Scalars['Int'];
+  id: Scalars['Long'];
   posterImg: Scalars['String'];
   releaseDate: Scalars['String'];
   runningTime: Scalars['Float'];
@@ -44,7 +51,7 @@ export type QueryGetFilmArgs = {
 export type FilmsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type FilmsQuery = { __typename?: 'Query', getFilms: Array<{ __typename?: 'FilmResponse', id: number, title: string, subtitle?: string | null }> };
+export type FilmsQuery = { __typename?: 'Query', getFilms: Array<{ __typename?: 'FilmResponse', id: any, title: string, subtitle?: string | null, genre: string, runningTime: number, releaseDate: string, posterImg: string, director: { __typename?: 'DirectorResponse', id: any, name: string } }> };
 
 
 export const FilmsDocument = gql`
@@ -53,6 +60,14 @@ export const FilmsDocument = gql`
     id
     title
     subtitle
+    genre
+    runningTime
+    releaseDate
+    posterImg
+    director {
+      id
+      name
+    }
   }
 }
     `;

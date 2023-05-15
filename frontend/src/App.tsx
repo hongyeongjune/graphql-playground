@@ -12,7 +12,6 @@ export const App = () => (
     <ApolloProvider client={apolloClient}>
         <ChakraProvider theme={theme}>
             <Box>
-                <Text>GraphQL</Text>
                 <FilmList />
             </Box>
         </ChakraProvider>
