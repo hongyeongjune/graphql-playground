@@ -27,7 +27,7 @@ public class FilmRepositoryImpl extends QuerydslRepositorySupport implements Fil
             .orderBy(filmEntity.id.asc());
 
         if (cursor != null) {
-            query.where(filmEntity.id.gt(cursor));
+            query.where(filmEntity.id.goe(cursor));
         }
         if (limit == null || limit > 6) {
             query.limit(6);

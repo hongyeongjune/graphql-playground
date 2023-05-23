@@ -21,7 +21,7 @@ public class FilmController {
     }
 
     @QueryMapping
-    public CursorPagedResponse<FilmResponse> getFilms(@Argument Long filmId, @Argument Long limit) {
-        return filmService.getCursorPagedFilms(filmId, limit);
+    public CursorPagedResponse<FilmResponse> getFilms(@Argument Long cursor, @Argument Long limit) {
+        return filmService.getCursorPagedFilms(cursor, limit);
     }
 }

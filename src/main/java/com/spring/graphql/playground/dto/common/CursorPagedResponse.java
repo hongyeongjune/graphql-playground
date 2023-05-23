@@ -22,4 +22,8 @@ public class CursorPagedResponse <T> {
             .data(data)
             .build();
     }
+
+    public static <T> CursorPagedResponse<T> newInstance() {
+        return new CursorPagedResponse<>();
+    }
 }

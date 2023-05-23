@@ -1,5 +1,5 @@
-query Films($filmId: Long, $limit: Long) {
-    getFilms(filmId: $filmId, limit: $limit) {
+query Films($cursor: Long, $limit: Long) {
+    getFilms(cursor: $cursor, limit: $limit) {
         cursor
         data {
             id

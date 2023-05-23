@@ -56,12 +56,12 @@ export type QueryGetFilmArgs = {
 
 
 export type QueryGetFilmsArgs = {
-  filmId?: InputMaybe<Scalars['Long']>;
+  cursor?: InputMaybe<Scalars['Long']>;
   limit?: InputMaybe<Scalars['Long']>;
 };
 
 export type FilmsQueryVariables = Exact<{
-  filmId?: InputMaybe<Scalars['Long']>;
+  cursor?: InputMaybe<Scalars['Long']>;
   limit?: InputMaybe<Scalars['Long']>;
 }>;
 
@@ -70,8 +70,8 @@ export type FilmsQuery = { __typename?: 'Query', getFilms: { __typename?: 'Curso
 
 
 export const FilmsDocument = gql`
-    query Films($filmId: Long, $limit: Long) {
-  getFilms(filmId: $filmId, limit: $limit) {
+    query Films($cursor: Long, $limit: Long) {
+  getFilms(cursor: $cursor, limit: $limit) {
     cursor
     data {
       id
@@ -102,7 +102,7 @@ export const FilmsDocument = gql`
  * @example
  * const { data, loading, error } = useFilmsQuery({
  *   variables: {
- *      filmId: // value for 'filmId'
+ *      cursor: // value for 'cursor'
  *      limit: // value for 'limit'
  *   },
  * });

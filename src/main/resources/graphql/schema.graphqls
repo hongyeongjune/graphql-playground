@@ -16,11 +16,11 @@ type FilmResponse {
 }
 
 type CursorPagedResponse {
-    cursor: Long!
+    cursor: Long
     data: [FilmResponse!]!
 }
 
 type Query {
     getFilm(filmId: Long!): FilmResponse!
-    getFilms(filmId: Long, limit: Long): CursorPagedResponse!
+    getFilms(cursor: Long, limit: Long): CursorPagedResponse!
 }
