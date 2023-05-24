@@ -1,8 +1,8 @@
 # graphql-playground
 
 ### React / TypeScript
-> https://github.com/hwasurr/graphql-book-fullstack-project
-> GraphQL과 타입스크립트로 개발하는 웹 서비스
+> https://github.com/hwasurr/graphql-book-fullstack-project   
+> GraphQL과 타입스크립트로 개발하는 웹 서비스, 강화수 지음
 
 <hr />
 
