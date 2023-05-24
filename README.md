@@ -4,6 +4,8 @@
 > https://github.com/hwasurr/graphql-book-fullstack-project
 > GraphQL과 타입스크립트로 개발하는 웹 서비스
 
+<hr />
+
 ### Spring-GraphQL
 > https://techdozo.dev/category/microservices/graphql/
 
@@ -24,3 +26,6 @@ The default and preferred choice of the media type is "application/graphql+json"
 
 #### RuntimeWiring
 GraphQL Java RuntimeWiring.Builder is used to register DataFetchers, type resolvers, custom scalar types, and more. You can declare RuntimeWiringConfigurer beans in your Spring config to get access to the RuntimeWiring.Builder.
+
+<hr />
+
