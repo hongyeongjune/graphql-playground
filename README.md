@@ -7,8 +7,8 @@
 <hr />
 
 ### Spring-GraphQL
-> https://techdozo.dev/category/microservices/graphql/
-> https://it-eldorado.tistory.com/179
+> https://techdozo.dev/category/microservices/graphql/  
+> https://it-eldorado.tistory.com/179  
 > https://tech.kakao.com/2019/08/01/graphql-basic/
 
 #### What is GraphQL
