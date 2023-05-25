@@ -66,5 +66,17 @@ The default and preferred choice of the media type is "application/graphql+json"
 #### RuntimeWiring
 GraphQL Java RuntimeWiring.Builder is used to register DataFetchers, type resolvers, custom scalar types, and more. You can declare RuntimeWiringConfigurer beans in your Spring config to get access to the RuntimeWiring.Builder.
 
+#### HttpStatus
+The way to return errors in GraphQL (at least in graphql-js) is to throw errors inside the resolve functions.
+Because HTTP status codes are specific to the HTTP transport and GraphQL doesn't care about the transport, there's no way for you to set the status code there.
+> https://stackoverflow.com/questions/42937502/graphql-how-to-respond-with-different-status-code
+
+As you all know, REST APIs use status codes as a part of the response (200-ok, 404-not found, 500-internal server error etc.).
+In GraphQL it’s a bit different because in most cases you just get 200 (or 500 if something goes really bad).
+> https://medium.com/swlh/status-codes-in-graphql-4cbf699bc2be
+
+A GraphQL API will always return a 200 OK Status Code, even in case of error. You'll get a 5xx error in case the server is not available at all.
+> https://the-guild.dev/blog/graphql-error-handling-with-fp
+
 <hr />
 
