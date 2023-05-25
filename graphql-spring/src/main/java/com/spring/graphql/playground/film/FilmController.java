@@ -1,4 +1,4 @@
-package com.spring.graphql.playground.controller.film;
+package com.spring.graphql.playground.film;
 
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;

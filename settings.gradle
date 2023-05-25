@@ -1,1 +1,4 @@
 rootProject.name = 'playground'
+include 'graphql-spring'
+include 'graphql-armeria'
+
